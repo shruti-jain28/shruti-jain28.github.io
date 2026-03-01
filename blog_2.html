@@ -1,0 +1,167 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Blog — Shruti Jain</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Caveat:wght@400;600;700&family=Crimson+Pro:ital,wght@0,300;0,400;0,600;1,300;1,400&family=DM+Mono:wght@400;500&family=DM+Sans:wght@300;400;500&display=swap"
+      rel="stylesheet"
+    />
+    <!-- Shared styles -->
+    <link rel="stylesheet" href="styles/base.css" />
+    <link rel="stylesheet" href="styles/layout.css" />
+    <link rel="stylesheet" href="styles/cursor.css" />
+    <!-- Blog-specific -->
+    <link rel="stylesheet" href="styles/blog.css" />
+    <link rel="stylesheet" href="styles/blog-index.css" />
+  </head>
+  <body>
+
+    <!-- Cursor -->
+    <div class="cur-dot" id="curDot"></div>
+    <div class="cur-ring" id="curRing"></div>
+
+    <!-- Theme toggle -->
+    <button class="theme-toggle" id="themeToggle" aria-label="Toggle theme" title="Switch theme">
+      <span class="theme-icon theme-icon-dark">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/>
+        </svg>
+      </span>
+      <span class="theme-icon theme-icon-light">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <circle cx="12" cy="12" r="5"/>
+          <line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/>
+          <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/>
+          <line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/>
+          <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/>
+        </svg>
+      </span>
+    </button>
+
+    <!-- Sidebars -->
+    <aside class="sidebar sidebar-left"  id="sideL"></aside>
+    <aside class="sidebar sidebar-right" id="sideR"></aside>
+
+    <!-- Index backdrop (dims page when panel open) -->
+    <div class="index-backdrop" id="indexBackdrop" aria-hidden="true"></div>
+
+    <!-- Index panel wrap (drop-shadow carrier) -->
+    <div class="index-panel-wrap" id="indexPanelWrap" role="navigation" aria-label="Blog index">
+      <!-- Panel: torn paper edge applied via JS clip-path -->
+      <div class="index-panel" id="indexPanel">
+        <div class="index-panel-scroll" id="indexPanelScroll">
+          <!-- Populated by blog-index.js -->
+        </div>
+      </div>
+    </div>
+
+    <!-- Index tab trigger -->
+    <button class="index-tab" id="indexTab" aria-controls="indexPanelWrap" aria-expanded="false" title="Toggle blog index">
+      <span class="index-tab-icon" aria-hidden="true">
+        <span></span><span></span><span></span>
+      </span>
+      <span class="index-tab-label">Index</span>
+      <span class="index-tab-arrow" aria-hidden="true">›</span>
+    </button>
+
+    <main>
+
+      <!-- ── NAV ── -->
+      <nav>
+        <a href="index.html" class="nav-home">S J.</a>
+        <a href="index.html#about"    class="nav-link">About</a>
+        <a href="index.html#projects" class="nav-link">Projects</a>
+        <a href="index.html#work"     class="nav-link">Experience</a>
+        <a href="index.html#patents"  class="nav-link">Patents</a>
+        <a href="blog.html"           class="nav-link">Blog</a>
+        <a href="index.html#contact"  class="nav-link">Connect</a>
+      </nav>
+
+      <!-- ── HERO ── -->
+      <section id="blog-hero">
+        <div class="blog-hero-inner">
+          <p class="blog-hero-eyebrow">Writing &amp; Thinking</p>
+          <h1 class="blog-hero-title">
+            Notes from<br />
+            a <em>curious</em><br />
+            engineer.
+          </h1>
+          <p class="blog-hero-sub">
+            AI, frontend architecture, engineering lessons, and the occasional
+            thought that didn't fit in a commit message.
+          </p>
+
+          <!-- Search -->
+          <div class="search-wrap">
+            <input
+              type="text"
+              id="blogSearch"
+              class="search-input"
+              placeholder="Search posts… try 'AI' or 'algrtm'"
+              autocomplete="off"
+            />
+            <span class="search-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <circle cx="11" cy="11" r="8"/>
+                <line x1="21" y1="21" x2="16.65" y2="16.65"/>
+              </svg>
+            </span>
+            <p class="search-status" id="searchStatus"></p>
+          </div>
+        </div>
+      </section>
+
+      <!-- ── TAG FILTER ── -->
+      <div class="tag-bar" id="tagBar"></div>
+
+      <!-- ── MASONRY GRID ── -->
+      <section id="blog-grid-section">
+        <div class="blog-grid" id="blogGrid"></div>
+        <p class="no-results" id="noResults">
+          No posts match that search.<br />
+          <em>Try a shorter keyword or clear the filter.</em>
+        </p>
+      </section>
+
+      <!-- ── FOOTER ── -->
+      <footer>
+        <a href="index.html" class="foot-logo">By Shruti Jain.</a>
+        <span class="foot-copy">© 2025 — Bangalore, India</span>
+      </footer>
+
+    </main>
+
+    <!-- Data -->
+    <script src="data/icons.js"></script>
+    <script src="data/blogs.js"></script>
+    <script src="data/categories.js"></script>
+
+    <!-- Shared scripts -->
+    <script src="scripts/theme.js"></script>
+    <script src="scripts/sidebar.js"></script>
+    <script src="scripts/cursor.js"></script>
+    <script src="scripts/interactions.js"></script>
+
+    <!-- Blog-specific -->
+    <script src="scripts/blog.js"></script>
+    <script src="scripts/blog-index.js"></script>
+
+    <script>
+      (function () {
+        Portfolio.initTheme();
+        document.addEventListener('DOMContentLoaded', function () {
+          Portfolio.initSidebars();
+          Portfolio.initCursor();
+          Portfolio.initMagneticNav();
+          Portfolio.initStickyNav();
+          Portfolio.initScrollReveal();
+          Portfolio.initBlogListing();
+          Portfolio.initBlogIndex();
+        });
+      })();
+    </script>
+
+  </body>
+</html>

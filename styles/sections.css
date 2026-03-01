@@ -1,0 +1,407 @@
+/* ═══════════════════════════════════════
+   SHARED SECTION HEADER
+═══════════════════════════════════════ */
+.sec-header {
+  display:       flex;
+  align-items:   baseline;
+  gap:           20px;
+  margin-bottom: 64px;
+}
+.sec-num {
+  font-family:    'DM Sans', sans-serif;
+  font-size:      0.7rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color:          var(--coral);
+}
+.sec-title {
+  font-family:    'Caveat', cursive;
+  font-size:      clamp(2rem, 3.5vw, 3rem);
+  font-weight:    700;
+  color:          var(--cream);
+  letter-spacing: 0.02em;
+  line-height:    1;
+}
+.sec-line {
+  flex:       1;
+  height:     1px;
+  background: rgba(212, 79, 57, 0.2);
+}
+
+html.light .sec-title { color: var(--text); }
+html.light .sec-num   { color: var(--coral); }
+html.light .sec-line  { background: rgba(201, 69, 53, 0.2); }
+
+/* ═══════════════════════════════════════
+   ABOUT
+═══════════════════════════════════════ */
+#about {
+  padding:    120px 80px;
+  background: #1e1a17;
+}
+.about-grid {
+  display:               grid;
+  grid-template-columns: 1fr 1fr;
+  gap:                   72px;
+  align-items:           start;
+}
+.about-bio {
+  font-family: 'Crimson Pro', serif;
+  font-size:   clamp(1.15rem, 1.8vw, 1.45rem);
+  font-weight: 300;
+  line-height: 1.65;
+  color:       rgba(242, 232, 213, 0.82);
+}
+.about-bio strong { color: var(--coral); font-weight: 600; }
+.about-details    { display: flex; flex-direction: column; }
+
+.det {
+  padding:               20px 0;
+  border-bottom:         1px solid rgba(212, 79, 57, 0.12);
+  display:               grid;
+  grid-template-columns: 120px 1fr;
+  gap:                   16px;
+}
+.det-k {
+  font-family:    'DM Sans', sans-serif;
+  font-size:      0.68rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color:          var(--coral);
+  padding-top:    2px;
+}
+.det-v {
+  font-family: 'DM Sans', sans-serif;
+  font-size:   0.9rem;
+  color:       rgba(242, 232, 213, 0.65);
+  line-height: 1.5;
+}
+
+html.light #about        { background: #ede7db; }
+html.light .about-bio    { color: rgba(42, 31, 24, 0.82); }
+html.light .det-v        { color: rgba(42, 31, 24, 0.65); }
+html.light .det          { border-bottom-color: rgba(201, 69, 53, 0.14); }
+
+/* ═══════════════════════════════════════
+   PROJECTS (skills grid)
+═══════════════════════════════════════ */
+#projects {
+  padding:    120px 80px;
+  background: var(--bg);
+}
+.skills-grid {
+  display:               grid;
+  grid-template-columns: repeat(3, 1fr);
+  border:                1px solid rgba(212, 79, 57, 0.15);
+  gap:                   1px;
+  background:            rgba(212, 79, 57, 0.1);
+}
+.sk {
+  background: var(--bg);
+  padding:    36px 28px 32px;
+  transition: background 0.25s;
+  position:   relative;
+  overflow:   hidden;
+  cursor:     none;
+}
+.sk::before {
+  content:          '';
+  position:         absolute;
+  bottom: 0; left: 0; right: 0;
+  height:           2px;
+  background:       var(--coral);
+  transform:        scaleX(0);
+  transform-origin: left;
+  transition:       transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.sk:hover         { background: #1e1a17; }
+.sk:hover::before { transform: scaleX(1); }
+
+.sk-icon  { font-size: 1.8rem; margin-bottom: 14px; display: block; }
+.sk-name  {
+  font-family:   'Crimson Pro', Georgia, serif;
+  font-style:    italic;
+  font-size:     1.55rem;
+  font-weight:   400;
+  color:         var(--cream);
+  margin-bottom: 10px;
+}
+.sk-desc  {
+  font-family:   'DM Sans', sans-serif;
+  font-size:     0.82rem;
+  color:         var(--muted);
+  line-height:   1.65;
+  margin-bottom: 20px;
+}
+.sk-chips { display: flex; flex-wrap: wrap; gap: 7px; }
+.chip {
+  font-family:    'DM Sans', sans-serif;
+  font-size:      0.62rem;
+  letter-spacing: 0.06em;
+  padding:        4px 10px;
+  border:         1px solid rgba(212, 79, 57, 0.2);
+  color:          rgba(242, 232, 213, 0.45);
+  transition:     border-color 0.2s, color 0.2s;
+}
+.sk:hover .chip { border-color: rgba(212, 79, 57, 0.55); color: var(--coral); }
+
+html.light #projects        { background: var(--bg); }
+html.light .skills-grid     { background: rgba(201, 69, 53, 0.1); border-color: rgba(201, 69, 53, 0.15); }
+html.light .sk              { background: var(--bg); }
+html.light .sk:hover        { background: var(--bg-tile); }
+html.light .sk-name         { color: var(--text); }
+html.light .sk-desc         { color: var(--muted); }
+html.light .chip            { color: rgba(42, 31, 24, 0.45); border-color: rgba(201, 69, 53, 0.2); }
+html.light .sk:hover .chip  { color: var(--coral); border-color: rgba(201, 69, 53, 0.55); }
+
+/* ═══════════════════════════════════════
+   EXPERIENCE & EDUCATION
+═══════════════════════════════════════ */
+#work {
+  padding:    120px 80px;
+  background: #1e1a17;
+}
+.exp-grid {
+  display:               grid;
+  grid-template-columns: 1fr 1fr;
+  gap:                   80px;
+  align-items:           start;
+}
+.exp-col-label {
+  font-family:    'DM Sans', sans-serif;
+  font-size:      0.68rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color:          var(--coral);
+  margin-bottom:  32px;
+}
+.exp-entry {
+  display:               grid;
+  grid-template-columns: 110px 1fr;
+  gap:                   24px;
+  padding:               28px 0;
+  border-top:            1px solid rgba(212, 79, 57, 0.12);
+  transition:            padding-left 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.exp-entry:hover { padding-left: 6px; }
+.exp-year {
+  font-family:    'DM Mono', monospace;
+  font-size:      0.72rem;
+  color:          var(--muted);
+  padding-top:    4px;
+  letter-spacing: 0.04em;
+  line-height:    1.5;
+}
+.exp-title {
+  font-family:   'Crimson Pro', serif;
+  font-size:     1.35rem;
+  font-weight:   400;
+  color:         var(--cream);
+  margin-bottom: 4px;
+  line-height:   1.2;
+}
+.exp-company {
+  font-family:   'DM Sans', sans-serif;
+  font-size:     0.85rem;
+  font-weight:   500;
+  color:         var(--coral);
+  margin-bottom: 10px;
+}
+.exp-desc {
+  list-style-type: disc !important;
+  font-family:     'DM Sans', sans-serif;
+  font-size:       0.84rem;
+  color:           var(--muted);
+  line-height:     1.65;
+  list-style:      none;
+  padding-left:    0;
+}
+
+html.light #work        { background: #ede7db; }
+html.light .exp-entry   { border-top-color: rgba(201, 69, 53, 0.14); }
+html.light .exp-title   { color: var(--text); }
+
+/* ═══════════════════════════════════════
+   PATENTS
+═══════════════════════════════════════ */
+#patents {
+  padding:    120px 80px;
+  background: var(--bg);
+}
+.patents-grid {
+  display:               grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap:                   1px;
+  background:            rgba(212, 79, 57, 0.1);
+  border:                1px solid rgba(212, 79, 57, 0.15);
+}
+.patent-card {
+  background: var(--bg);
+  padding:    40px 32px;
+  position:   relative;
+  overflow:   hidden;
+  transition: background 0.3s;
+  cursor:     none;
+}
+.patent-card::before {
+  content:          '';
+  position:         absolute;
+  top: 0; left: 0; right: 0;
+  height:           3px;
+  background:       linear-gradient(90deg, var(--coral), var(--coral-lt));
+  transform:        scaleX(0);
+  transform-origin: left;
+  transition:       transform 0.45s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.patent-card:hover           { background: #1e1a17; }
+.patent-card:hover::before   { transform: scaleX(1); }
+.patent-num {
+  font-family:    'DM Mono', monospace;
+  font-size:      0.7rem;
+  letter-spacing: 0.1em;
+  color:          rgba(212, 79, 57, 0.45);
+  margin-bottom:  14px;
+  display:        block;
+}
+.patent-title {
+  font-family:   'Crimson Pro', Georgia, serif;
+  font-style:    italic;
+  font-size:     1.55rem;
+  font-weight:   400;
+  color:         var(--cream);
+  margin-bottom: 12px;
+  line-height:   1.25;
+  transition:    color 0.2s;
+}
+.patent-card:hover .patent-title { color: var(--coral); }
+.patent-desc {
+  font-family:   'DM Sans', sans-serif;
+  font-size:     0.94rem;
+  color:         var(--muted);
+  line-height:   1.65;
+  margin-bottom: 24px;
+}
+.patent-footer {
+  display:         flex;
+  align-items:     center;
+  justify-content: space-between;
+  border-top:      1px solid rgba(212, 79, 57, 0.12);
+  padding-top:     16px;
+}
+.patent-year {
+  font-family:    'DM Mono', monospace;
+  font-size:      0.68rem;
+  color:          rgba(212, 79, 57, 0.4);
+  letter-spacing: 0.08em;
+}
+.patent-status {
+  font-family: 'DM Sans', sans-serif;
+  font-size:   0.72rem;
+  color:       var(--coral);
+  font-weight: 500;
+  background:  rgba(212, 79, 57, 0.08);
+  border:      1px solid rgba(212, 79, 57, 0.25);
+  padding:     3px 10px;
+}
+
+html.light #patents               { background: var(--bg); }
+html.light .patents-grid          { background: rgba(201, 69, 53, 0.1); border-color: rgba(201, 69, 53, 0.15); }
+html.light .patent-subtitle       { color: var(--text) !important; }
+html.light .patent-card           { background: var(--bg); }
+html.light .patent-card:hover     { background: var(--bg-tile); }
+html.light .patent-title          { color: var(--text); }
+html.light .patent-card:hover .patent-title { color: var(--coral); }
+html.light .patent-desc           { color: var(--muted); }
+html.light .patent-footer         { border-top-color: rgba(201, 69, 53, 0.14); }
+html.light .patent-year           { color: rgba(201, 69, 53, 0.5); }
+
+/* ═══════════════════════════════════════
+   CONTACT
+═══════════════════════════════════════ */
+#contact {
+  padding:               120px 80px;
+  background:            #1e1a17;
+  display:               grid;
+  grid-template-columns: 1fr 1fr;
+  gap:                   100px;
+  align-items:           center;
+}
+.contact-hl {
+  font-family:    'Caveat', cursive;
+  font-size:      clamp(2.8rem, 5vw, 5rem);
+  font-weight:    700;
+  line-height:    1;
+  letter-spacing: 0.01em;
+  color:          var(--cream);
+}
+.contact-hl em    { font-style: italic; color: var(--coral); display: block; }
+.contact-sub {
+  font-family:  'DM Sans', sans-serif;
+  font-size:    1.3rem;
+  color:        var(--muted);
+  line-height:  1.75;
+  margin-top:   24px;
+}
+
+/* Social links grid */
+.social-links-grid { display: flex; flex-direction: column; gap: 0; align-self: center; }
+.social-link-item {
+  display:     flex;
+  align-items: center;
+  gap:         24px;
+  padding:     26px 0;
+  border-bottom: 1px solid rgba(212, 79, 57, 0.12);
+  text-decoration: none;
+  color:       var(--cream);
+  transition:
+    padding-left 0.3s cubic-bezier(0.16, 1, 0.3, 1),
+    color        0.2s;
+  cursor: none;
+}
+.social-link-item:first-child { border-top: 1px solid rgba(212, 79, 57, 0.12); }
+.social-link-item:hover       { padding-left: 14px; color: var(--coral); }
+
+.social-link-icon {
+  width:          44px;
+  height:         44px;
+  border:         1.5px solid rgba(212, 79, 57, 0.25);
+  border-radius:  50%;
+  display:        flex;
+  align-items:    center;
+  justify-content: center;
+  flex-shrink:    0;
+  transition:     background 0.25s, border-color 0.25s;
+}
+.social-link-item:hover .social-link-icon { background: var(--coral); border-color: var(--coral); }
+.social-link-icon svg                     { width: 18px; height: 18px; }
+.social-link-item:hover .social-link-icon svg { stroke: #fff; }
+
+.social-link-name {
+  font-family: 'Caveat', cursive;
+  font-size:   1.6rem;
+  font-weight: 700;
+  line-height: 1;
+  display:     block;
+}
+.social-link-handle {
+  font-family:    'DM Mono', monospace;
+  font-size:      0.7rem;
+  letter-spacing: 0.1em;
+  color:          var(--muted);
+  margin-top:     4px;
+  display:        block;
+}
+.social-link-arr {
+  margin-left: auto;
+  font-size:   1.2rem;
+  color:       rgba(212, 79, 57, 0.35);
+  transform:   rotate(-45deg);
+  transition:  transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), color 0.2s;
+}
+.social-link-item:hover .social-link-arr { transform: rotate(0deg); color: var(--coral); }
+
+html.light #contact                          { background: #ede7db; }
+html.light .contact-hl                       { color: var(--text); }
+html.light .contact-sub                      { color: var(--muted); }
+html.light .social-link-item                 { color: var(--text); border-bottom-color: rgba(201, 69, 53, 0.14); }
+html.light .social-link-item:first-child     { border-top-color: rgba(201, 69, 53, 0.14); }

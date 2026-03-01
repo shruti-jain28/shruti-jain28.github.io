@@ -1,0 +1,1375 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Shruti Jain — Software Engineer</title>
+
+    <!-- Fonts -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=Caveat:wght@400;600;700&family=Crimson+Pro:ital,wght@0,300;0,400;0,600;1,300;1,400&family=DM+Mono:wght@400;500&family=DM+Sans:wght@300;400;500&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- Styles — order matters: base tokens first, then overrides -->
+    <link rel="stylesheet" href="styles/base.css" />
+    <link rel="stylesheet" href="styles/layout.css" />
+    <link rel="stylesheet" href="styles/cursor.css" />
+    <link rel="stylesheet" href="styles/hero.css" />
+    <link rel="stylesheet" href="styles/sections.css" />
+    <link rel="stylesheet" href="styles/responsive.css" />
+  </head>
+  <body>
+    <!-- Custom cursor -->
+    <div class="cur-dot" id="curDot"></div>
+    <div class="cur-ring" id="curRing"></div>
+
+    <!-- Theme toggle -->
+    <button
+      class="theme-toggle"
+      id="themeToggle"
+      aria-label="Toggle light/dark theme"
+      title="Switch theme"
+    >
+      <span class="theme-icon theme-icon-dark">
+        <svg
+          width="18"
+          height="18"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="2"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+        >
+          <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z" />
+        </svg>
+      </span>
+      <span class="theme-icon theme-icon-light">
+        <svg
+          width="18"
+          height="18"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="2"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+        >
+          <circle cx="12" cy="12" r="5" />
+          <line x1="12" y1="1" x2="12" y2="3" />
+          <line x1="12" y1="21" x2="12" y2="23" />
+          <line x1="4.22" y1="4.22" x2="5.64" y2="5.64" />
+          <line x1="18.36" y1="18.36" x2="19.78" y2="19.78" />
+          <line x1="1" y1="12" x2="3" y2="12" />
+          <line x1="21" y1="12" x2="23" y2="12" />
+          <line x1="4.22" y1="19.78" x2="5.64" y2="18.36" />
+          <line x1="18.36" y1="5.64" x2="19.78" y2="4.22" />
+        </svg>
+      </span>
+    </button>
+
+    <!-- Floating photo (appears over name on hover) -->
+    <div id="floatPhoto">
+      <img src="images/shruti.jpeg" alt="Shruti Jain" />
+    </div>
+
+    <!-- Quote author tooltip -->
+    <div class="q-author-card" id="authorCard">
+      <div class="q-author-info">
+        <div class="q-author-name" id="authorName"></div>
+        <div class="q-author-date" id="authorDate"></div>
+      </div>
+    </div>
+
+    <!-- Sidebars (populated by sidebar.js) -->
+    <aside class="sidebar sidebar-left" id="sideL"></aside>
+    <aside class="sidebar sidebar-right" id="sideR"></aside>
+
+    <main>
+      <!-- ── NAV ─────────────────────────────────────────── -->
+      <nav>
+        <a href="#hero" class="nav-home">S J.</a>
+        <a href="#about" class="nav-link">About</a>
+        <a href="#projects" class="nav-link">Projects</a>
+        <a href="#work" class="nav-link">Experience</a>
+        <a href="#patents" class="nav-link">Patents</a>
+        <a href="blog.html" class="nav-link">Blog</a>
+        <a href="#contact" class="nav-link">Connect</a>
+      </nav>
+
+      <!-- ══════════════════════ HERO ══════════════════════ -->
+      <section id="hero">
+        <!-- Left doodles -->
+        <svg
+          class="hero-doodle"
+          style="
+            left: 2%;
+            top: 8%;
+            width: 88px;
+            --op: 0.5;
+            --base-t: rotate(-8deg);
+            --float-t: translateY(-8px) rotate(-8deg);
+            animation-delay: 0.2s, 0s;
+            animation-duration: 7s, 0s;
+          "
+          viewBox="0 0 80 56"
+          fill="none"
+          stroke="#c94535"
+          stroke-width="1.6"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+        >
+          <rect x="8" y="4" width="56" height="36" rx="4" />
+          <rect x="13" y="9" width="46" height="26" rx="1.5" />
+          <line x1="18" y1="16" x2="32" y2="16" />
+          <line x1="18" y1="21" x2="40" y2="21" />
+          <line x1="18" y1="26" x2="36" y2="26" />
+          <rect
+            x="30"
+            y="23"
+            width="4"
+            height="6"
+            fill="#c94535"
+            stroke="none"
+            opacity=".5"
+          >
+            <animate
+              attributeName="opacity"
+              values="0;.6;0"
+              dur="1.2s"
+              repeatCount="indefinite"
+            />
+          </rect>
+          <path d="M2 40 h68 l-4 6 H6z" />
+        </svg>
+        <svg
+          class="hero-doodle"
+          style="
+            left: 1%;
+            top: 38%;
+            width: 72px;
+            --op: 0.45;
+            --base-t: rotate(5deg);
+            --float-t: translateY(-12px) rotate(5deg);
+            animation-delay: 0.5s, 0s;
+            animation-duration: 8s, 0s;
+          "
+          viewBox="0 0 72 44"
+          fill="none"
+          stroke="#c94535"
+          stroke-width="1.6"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+        >
+          <path
+            d="M14 22 Q28 8 50 22 Q28 36 14 22z"
+            fill="rgba(201,69,53,.08)"
+          />
+          <path
+            d="M50 22 Q62 12 68 22 Q62 32 50 22z"
+            fill="rgba(201,69,53,.1)"
+          />
+          <circle cx="20" cy="20" r="2.5" fill="#c94535" stroke="none" />
+          <path d="M30 16 Q34 12 38 16" />
+          <path d="M30 28 Q34 32 38 28" />
+          <path d="M40 22 Q44 18 48 22 Q44 26 40 22z" />
+        </svg>
+        <svg
+          class="hero-doodle"
+          style="
+            left: 3%;
+            top: 62%;
+            width: 52px;
+            --op: 0.5;
+            --base-t: rotate(-4deg);
+            --float-t: translateY(-9px) rotate(-4deg);
+            animation-delay: 1s, 0s;
+            animation-duration: 6.5s, 0s;
+          "
+          viewBox="0 0 52 72"
+          fill="none"
+          stroke="#c94535"
+          stroke-width="1.6"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+        >
+          <path d="M10 18 L14 64 H38 L42 18z" fill="rgba(201,69,53,.07)" />
+          <line x1="10" y1="18" x2="42" y2="18" />
+          <line
+            x1="12"
+            y1="30"
+            x2="40"
+            y2="30"
+            stroke-dasharray="3 4"
+            opacity=".5"
+          />
+          <line
+            x1="14"
+            y1="42"
+            x2="38"
+            y2="42"
+            stroke-dasharray="3 4"
+            opacity=".35"
+          />
+          <line x1="32" y1="4" x2="28" y2="18" stroke-width="2.2" />
+          <path d="M30 6 Q33 3 36 5" stroke-width="1.2" opacity=".6" />
+          <circle cx="20" cy="35" r="2" opacity=".4" />
+          <circle cx="28" cy="28" r="1.5" opacity=".35" />
+          <circle cx="24" cy="46" r="1.2" opacity=".3" />
+        </svg>
+        <svg
+          class="hero-doodle"
+          style="
+            left: 0%;
+            top: 78%;
+            width: 64px;
+            --op: 0.48;
+            --base-t: rotate(10deg);
+            --float-t: translateY(-7px) rotate(10deg);
+            animation-delay: 1.8s, 0s;
+            animation-duration: 9s, 0s;
+          "
+          viewBox="0 0 64 72"
+          fill="none"
+          stroke="#c94535"
+          stroke-width="1.5"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+        >
+          <line x1="32" y1="72" x2="32" y2="36" stroke-width="2" />
+          <path
+            d="M32 44 Q22 40 20 30 Q30 28 32 36z"
+            fill="rgba(201,69,53,.1)"
+          />
+          <path
+            d="M32 44 Q42 40 44 30 Q34 28 32 36z"
+            fill="rgba(201,69,53,.1)"
+          />
+          <circle cx="32" cy="28" r="8" fill="rgba(201,69,53,.08)" />
+          <ellipse cx="32" cy="16" rx="5" ry="7" fill="rgba(201,69,53,.12)" />
+          <ellipse cx="32" cy="40" rx="5" ry="7" fill="rgba(201,69,53,.12)" />
+          <ellipse cx="20" cy="28" rx="7" ry="5" fill="rgba(201,69,53,.12)" />
+          <ellipse cx="44" cy="28" rx="7" ry="5" fill="rgba(201,69,53,.12)" />
+          <circle cx="32" cy="28" r="5" fill="rgba(201,69,53,.2)" />
+          <circle
+            cx="32"
+            cy="28"
+            r="2.5"
+            fill="#c94535"
+            stroke="none"
+            opacity=".5"
+          />
+        </svg>
+        <svg
+          class="hero-doodle"
+          style="
+            left: 5%;
+            top: 50%;
+            width: 60px;
+            --op: 0.42;
+            --base-t: rotate(-12deg);
+            --float-t: translateY(-11px) rotate(-12deg);
+            animation-delay: 2.4s, 0s;
+            animation-duration: 7.5s, 0s;
+          "
+          viewBox="0 0 60 60"
+          fill="none"
+          stroke="#c94535"
+          stroke-width="1.5"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+        >
+          <path
+            d="M30 55 Q24 42 20 30 Q14 18 22 12 Q34 8 36 22 Q38 36 30 55z"
+            fill="rgba(201,69,53,.1)"
+          />
+          <line x1="30" y1="55" x2="28" y2="14" stroke-width="1" opacity=".5" />
+          <path d="M28 28 Q20 24 18 18" />
+          <path d="M29 38 Q21 36 18 30" />
+          <path
+            d="M42 40 Q50 34 52 24 Q42 18 36 28z"
+            fill="rgba(201,69,53,.08)"
+          />
+          <line x1="42" y1="40" x2="50" y2="24" stroke-width="1" opacity=".4" />
+        </svg>
+        <svg
+          class="hero-doodle"
+          style="
+            left: 6%;
+            top: 22%;
+            width: 44px;
+            --op: 0.45;
+            --base-t: rotate(-5deg);
+            --float-t: translateY(-12px) rotate(-5deg);
+            animation-delay: 3.2s, 0s;
+            animation-duration: 8s, 0s;
+          "
+          viewBox="0 0 44 56"
+          fill="none"
+          stroke="#c94535"
+          stroke-width="1.8"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+        >
+          <path d="M14 44 V16 L38 10 V38" />
+          <circle cx="10" cy="44" r="5" fill="rgba(201,69,53,.15)" />
+          <circle cx="34" cy="38" r="5" fill="rgba(201,69,53,.15)" />
+        </svg>
+
+        <!-- Right doodles -->
+        <svg
+          class="hero-doodle"
+          style="
+            right: 2%;
+            top: 6%;
+            width: 48px;
+            --op: 0.5;
+            --base-t: rotate(15deg);
+            --float-t: translateY(-10px) rotate(15deg);
+            animation-delay: 0.3s, 0s;
+            animation-duration: 6s, 0s;
+          "
+          viewBox="0 0 48 48"
+          fill="none"
+          stroke="#c94535"
+          stroke-width="1.6"
+          stroke-linecap="round"
+        >
+          <path
+            d="M24 4 L27 20 L43 24 L27 28 L24 44 L21 28 L5 24 L21 20z"
+            fill="rgba(201,69,53,.1)"
+          />
+          <circle
+            cx="24"
+            cy="24"
+            r="3"
+            fill="#c94535"
+            stroke="none"
+            opacity=".4"
+          />
+        </svg>
+        <svg
+          class="hero-doodle"
+          style="
+            right: 4%;
+            top: 18%;
+            width: 58px;
+            --op: 0.45;
+            --base-t: rotate(-6deg);
+            --float-t: translateY(-14px) rotate(-6deg);
+            animation-delay: 0.8s, 0s;
+            animation-duration: 10s, 0s;
+          "
+          viewBox="0 0 58 58"
+          fill="none"
+          stroke="#c94535"
+          stroke-width="1.5"
+          stroke-linecap="round"
+        >
+          <path
+            d="M38 10 A18 18 0 1 1 22 44 A14 14 0 0 0 38 10z"
+            fill="rgba(201,69,53,.1)"
+          />
+          <circle
+            cx="10"
+            cy="12"
+            r="2"
+            fill="#c94535"
+            stroke="none"
+            opacity=".45"
+          />
+          <circle
+            cx="50"
+            cy="38"
+            r="1.5"
+            fill="#c94535"
+            stroke="none"
+            opacity=".4"
+          />
+          <path
+            d="M46 10 l1.5-3.5 1.5 3.5 m-1.5-3.5 l-3.5 1.5 3.5 1.5"
+            stroke-width="1.2"
+            opacity=".5"
+          />
+          <path
+            d="M8 44 l1-2.5 1 2.5 m-1-2.5 l-2.5 1 2.5 1"
+            stroke-width="1"
+            opacity=".4"
+          />
+        </svg>
+        <svg
+          class="hero-doodle"
+          style="
+            right: 1%;
+            top: 40%;
+            width: 68px;
+            --op: 0.48;
+            --base-t: rotate(8deg);
+            --float-t: translateY(-9px) rotate(8deg);
+            animation-delay: 1.3s, 0s;
+            animation-duration: 8.5s, 0s;
+          "
+          viewBox="0 0 68 56"
+          fill="none"
+          stroke="#c94535"
+          stroke-width="1.6"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+        >
+          <path
+            d="M6 4 Q6 52 6 52 Q22 46 34 52 Q46 46 62 52 L62 4 Q46 10 34 4 Q22 10 6 4z"
+            fill="rgba(201,69,53,.07)"
+          />
+          <line x1="34" y1="4" x2="34" y2="52" stroke-width="1.8" />
+          <line x1="14" y1="16" x2="30" y2="14" stroke-width="1" opacity=".5" />
+          <line x1="14" y1="22" x2="30" y2="20" stroke-width="1" opacity=".4" />
+          <line x1="14" y1="28" x2="30" y2="26" stroke-width="1" opacity=".4" />
+          <line x1="38" y1="16" x2="54" y2="14" stroke-width="1" opacity=".5" />
+          <line x1="38" y1="22" x2="54" y2="20" stroke-width="1" opacity=".4" />
+          <line x1="38" y1="28" x2="54" y2="26" stroke-width="1" opacity=".4" />
+        </svg>
+        <svg
+          class="hero-doodle"
+          style="
+            right: 3%;
+            top: 58%;
+            width: 66px;
+            --op: 0.46;
+            --base-t: rotate(-10deg);
+            --float-t: translateY(-13px) rotate(-10deg);
+            animation-delay: 2s, 0s;
+            animation-duration: 7s, 0s;
+          "
+          viewBox="0 0 66 52"
+          fill="none"
+          stroke="#c94535"
+          stroke-width="1.5"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+        >
+          <ellipse cx="33" cy="26" rx="2.5" ry="12" fill="rgba(201,69,53,.3)" />
+          <circle cx="33" cy="14" r="3" fill="rgba(201,69,53,.2)" />
+          <path d="M33 14 Q26 6 22 4" />
+          <circle
+            cx="22"
+            cy="4"
+            r="1.8"
+            fill="#c94535"
+            stroke="none"
+            opacity=".5"
+          />
+          <path d="M33 14 Q40 6 44 4" />
+          <circle
+            cx="44"
+            cy="4"
+            r="1.8"
+            fill="#c94535"
+            stroke="none"
+            opacity=".5"
+          />
+          <path
+            d="M31 22 Q14 12 8 22 Q14 36 31 30z"
+            fill="rgba(201,69,53,.1)"
+          />
+          <path
+            d="M31 30 Q16 34 12 42 Q22 46 31 36z"
+            fill="rgba(201,69,53,.08)"
+          />
+          <path
+            d="M35 22 Q52 12 58 22 Q52 36 35 30z"
+            fill="rgba(201,69,53,.1)"
+          />
+          <path
+            d="M35 30 Q50 34 54 42 Q44 46 35 36z"
+            fill="rgba(201,69,53,.08)"
+          />
+          <circle cx="22" cy="22" r="3" stroke-width="1" opacity=".4" />
+          <circle cx="44" cy="22" r="3" stroke-width="1" opacity=".4" />
+        </svg>
+        <svg
+          class="hero-doodle"
+          style="
+            right: 1%;
+            top: 74%;
+            width: 70px;
+            --op: 0.44;
+            --base-t: rotate(14deg);
+            --float-t: translateY(-8px) rotate(14deg);
+            animation-delay: 2.8s, 0s;
+            animation-duration: 9.5s, 0s;
+          "
+          viewBox="0 0 70 72"
+          fill="none"
+          stroke="#c94535"
+          stroke-width="1.5"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+        >
+          <path
+            d="M35 70 Q30 56 26 44 Q20 30 28 22 Q40 16 42 32 Q44 48 35 70z"
+            fill="rgba(201,69,53,.1)"
+          />
+          <line
+            x1="35"
+            y1="70"
+            x2="33"
+            y2="24"
+            stroke-width="1"
+            opacity=".45"
+          />
+          <path d="M33 42 Q23 38 20 28" />
+          <path d="M34 54 Q24 52 20 44" />
+          <path
+            d="M52 44 Q62 36 64 24 Q52 18 46 30z"
+            fill="rgba(201,69,53,.08)"
+          />
+          <path
+            d="M52 56 Q60 52 60 44 Q50 42 48 52z"
+            fill="rgba(201,69,53,.07)"
+          />
+          <line
+            x1="52"
+            y1="44"
+            x2="62"
+            y2="24"
+            stroke-width="1"
+            opacity=".35"
+          />
+        </svg>
+        <svg
+          class="hero-doodle"
+          style="
+            right: 6%;
+            top: 10%;
+            width: 56px;
+            --op: 0.4;
+            --base-t: rotate(6deg);
+            --float-t: translateY(-10px) rotate(6deg);
+            animation-delay: 3.8s, 0s;
+            animation-duration: 11s, 0s;
+          "
+          viewBox="0 0 56 40"
+          fill="none"
+          stroke="#c94535"
+          stroke-width="1.6"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+        >
+          <path
+            d="M4 32 Q10 20 18 28 Q24 16 32 8 Q40 16 46 28 Q52 20 56 32"
+            opacity=".9"
+          />
+          <path
+            d="M4 38 Q12 30 20 36 Q28 28 36 36 Q44 28 56 38"
+            opacity=".5"
+            stroke-width="1.2"
+          />
+        </svg>
+
+        <!-- Open notebook -->
+        <div class="notebook-open">
+          <!-- TOP PAGE -->
+          <div class="nb-page-left">
+            <div class="nb-left-content">
+              <div class="name-wrap" id="nameWrap">
+                <h1 class="nb-name">Shruti Jain</h1>
+              </div>
+              <p class="nb-role">
+                Software Engineer · Adept Learner · Loves Adventure
+              </p>
+              <h2 class="nb-tagline">
+                Software should feel<br />
+                <span
+                  class="rotating-word"
+                  id="rotatingWord"
+                  title="click to change"
+                >
+                  <span class="word-inner" id="wordInner">thoughtful</span>
+                </span>
+              </h2>
+              <p class="nb-location">
+                Bangalore, India &nbsp;·&nbsp; GMT +5:30
+              </p>
+              <div class="nb-cta">
+                <a href="blog.html" class="btn-nb btn-nb-solid"
+                  >Explore my Blog</a
+                >
+                <a href="#about" class="btn-nb btn-nb-outline">About Me</a>
+              </div>
+            </div>
+
+            <!-- Right illustration -->
+            <div class="nb-right-illus">
+              <svg
+                viewBox="0 0 300 340"
+                fill="none"
+                stroke="#c94535"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              >
+                <ellipse
+                  cx="152"
+                  cy="310"
+                  rx="110"
+                  ry="10"
+                  fill="rgba(201,69,53,.07)"
+                  stroke="none"
+                />
+                <line
+                  x1="42"
+                  y1="310"
+                  x2="262"
+                  y2="310"
+                  stroke-width="1.2"
+                  opacity=".25"
+                />
+                <path
+                  d="M148 310 Q144 280 140 248 Q137 225 142 200"
+                  stroke-width="5"
+                  stroke-linecap="round"
+                  opacity=".85"
+                />
+                <path
+                  d="M145 290 Q148 285 145 278"
+                  stroke-width="1"
+                  opacity=".4"
+                />
+                <path
+                  d="M143 268 Q147 263 144 256"
+                  stroke-width="1"
+                  opacity=".4"
+                />
+                <path
+                  d="M142 200 Q115 190 98 165 Q82 140 102 120 Q118 104 142 112 Q158 104 178 112 Q200 120 200 145 Q200 170 182 188 Q166 200 142 200z"
+                  fill="rgba(201,69,53,.09)"
+                  stroke-width="1.6"
+                  opacity=".55"
+                />
+                <path
+                  d="M142 195 Q118 183 106 160 Q94 135 114 118 Q130 106 148 116 Q166 106 180 120 Q194 136 186 162 Q174 186 142 195z"
+                  fill="rgba(201,69,53,.12)"
+                  stroke-width="1.8"
+                  opacity=".75"
+                />
+                <path
+                  d="M142 188 Q122 177 114 156 Q108 136 124 122 Q137 112 152 120 Q167 112 176 128 Q184 147 176 165 Q165 182 142 188z"
+                  fill="rgba(201,69,53,.15)"
+                  stroke-width="2"
+                  opacity=".9"
+                />
+                <path
+                  d="M136 112 Q128 96 138 86 Q148 78 158 88 Q166 98 158 112"
+                  fill="rgba(201,69,53,.12)"
+                  stroke-width="1.6"
+                  opacity=".7"
+                />
+                <path
+                  d="M142 308 Q134 300 126 296 Q118 292 112 295"
+                  stroke-width="2.5"
+                  opacity=".5"
+                />
+                <path
+                  d="M144 308 Q152 300 160 296 Q168 292 175 295"
+                  stroke-width="2.5"
+                  opacity=".5"
+                />
+                <path
+                  d="M96 265 L96 232 Q96 228 100 228 L172 228 Q176 228 176 232 L176 265"
+                  stroke-width="2"
+                  fill="rgba(201,69,53,.06)"
+                />
+                <rect
+                  x="100"
+                  y="231"
+                  width="72"
+                  height="30"
+                  rx="1.5"
+                  stroke-width="1"
+                  fill="rgba(201,69,53,.04)"
+                />
+                <line
+                  x1="106"
+                  y1="238"
+                  x2="128"
+                  y2="238"
+                  stroke-width="1.8"
+                  opacity=".7"
+                />
+                <line
+                  x1="106"
+                  y1="244"
+                  x2="142"
+                  y2="244"
+                  stroke-width="1.2"
+                  opacity=".5"
+                />
+                <line
+                  x1="106"
+                  y1="250"
+                  x2="134"
+                  y2="250"
+                  stroke-width="1.8"
+                  opacity=".7"
+                />
+                <rect
+                  x="137"
+                  y="247"
+                  width="5"
+                  height="7"
+                  fill="#c94535"
+                  stroke="none"
+                  opacity=".6"
+                >
+                  <animate
+                    attributeName="opacity"
+                    values="0;.65;0"
+                    dur="1.3s"
+                    repeatCount="indefinite"
+                  />
+                </rect>
+                <path
+                  d="M88 265 L184 265 L188 270 Q188 272 184 272 L88 272 Q84 272 84 270z"
+                  stroke-width="1.8"
+                  fill="rgba(201,69,53,.07)"
+                />
+                <circle
+                  cx="210"
+                  cy="238"
+                  r="17"
+                  stroke-width="2"
+                  fill="rgba(201,69,53,.04)"
+                />
+                <path
+                  d="M195 233 Q193 218 202 212 Q210 207 220 211 Q228 215 228 224 Q228 232 224 236"
+                  stroke-width="2.2"
+                  fill="rgba(201,69,53,.1)"
+                />
+                <circle
+                  cx="222"
+                  cy="210"
+                  r="6"
+                  stroke-width="1.8"
+                  fill="rgba(201,69,53,.08)"
+                />
+                <path d="M204 238 Q210 244 216 238" stroke-width="1.8" />
+                <path d="M204 233 Q206 230 208 233" stroke-width="1.5" />
+                <path d="M213 233 Q215 230 217 233" stroke-width="1.5" />
+                <ellipse
+                  cx="202"
+                  cy="240"
+                  rx="4"
+                  ry="2.5"
+                  fill="rgba(201,69,53,.18)"
+                  stroke="none"
+                />
+                <ellipse
+                  cx="218"
+                  cy="240"
+                  rx="4"
+                  ry="2.5"
+                  fill="rgba(201,69,53,.18)"
+                  stroke="none"
+                />
+                <line
+                  x1="210"
+                  y1="255"
+                  x2="210"
+                  y2="262"
+                  stroke-width="3"
+                  opacity=".6"
+                />
+                <path
+                  d="M196 262 Q190 278 192 300 L228 300 Q230 278 224 262z"
+                  stroke-width="1.8"
+                  fill="rgba(201,69,53,.05)"
+                />
+                <path
+                  d="M222 270 Q230 272 240 270 Q248 268 256 265 Q264 263 268 262"
+                  stroke-width="2.2"
+                  stroke-linecap="round"
+                  opacity=".75"
+                />
+                <ellipse
+                  cx="270"
+                  cy="262"
+                  rx="5"
+                  ry="3.5"
+                  stroke-width="1.5"
+                  fill="rgba(201,69,53,.06)"
+                />
+                <path
+                  d="M196 300 Q192 310 186 314"
+                  stroke-width="2.5"
+                  opacity=".65"
+                />
+                <path
+                  d="M226 300 Q232 310 238 314"
+                  stroke-width="2.5"
+                  opacity=".65"
+                />
+                <circle
+                  cx="264"
+                  cy="48"
+                  r="16"
+                  stroke-width="1.4"
+                  opacity=".35"
+                  fill="rgba(201,69,53,.05)"
+                />
+                <line
+                  x1="264"
+                  y1="26"
+                  x2="264"
+                  y2="20"
+                  stroke-width="1.2"
+                  opacity=".3"
+                />
+                <line
+                  x1="264"
+                  y1="70"
+                  x2="264"
+                  y2="76"
+                  stroke-width="1.2"
+                  opacity=".3"
+                />
+                <line
+                  x1="242"
+                  y1="48"
+                  x2="236"
+                  y2="48"
+                  stroke-width="1.2"
+                  opacity=".3"
+                />
+                <line
+                  x1="286"
+                  y1="48"
+                  x2="292"
+                  y2="48"
+                  stroke-width="1.2"
+                  opacity=".3"
+                />
+                <path
+                  d="M240 296 h14 l-1.5 12 H241.5z"
+                  stroke-width="1.5"
+                  opacity=".7"
+                />
+                <path
+                  d="M254 300 q4 0 4 4 q0 4-4 4"
+                  stroke-width="1.2"
+                  opacity=".6"
+                />
+                <path
+                  d="M244 293 Q243 289 245 286"
+                  stroke-width="1"
+                  opacity=".45"
+                />
+                <path
+                  d="M249 293 Q248 289 250 286"
+                  stroke-width="1"
+                  opacity=".4"
+                />
+              </svg>
+            </div>
+          </div>
+
+          <!-- SPINE -->
+          <div class="notebook-spine">
+            <div class="stitch">
+              <span></span><span></span><span></span><span></span> <span></span
+              ><span></span><span></span><span></span> <span></span><span></span
+              ><span></span><span></span> <span></span><span></span><span></span
+              ><span></span> <span></span><span></span><span></span
+              ><span></span> <span></span><span></span><span></span
+              ><span></span>
+            </div>
+            <div class="nb-ribbon"></div>
+            <div class="nb-ribbon-back"></div>
+          </div>
+
+          <!-- BOTTOM PAGE — Quotes (populated by quotes.js) -->
+          <div class="nb-page-right">
+            <p class="nb-quotes-title">Quotes I live by</p>
+            <ul class="quote-list" id="quoteList"></ul>
+
+            <!-- Corner doodles -->
+            <div
+              style="
+                position: absolute;
+                bottom: 24px;
+                right: 24px;
+                opacity: 0.3;
+                pointer-events: none;
+              "
+            >
+              <svg
+                width="90"
+                height="90"
+                viewBox="0 0 90 90"
+                fill="none"
+                stroke="#d44f39"
+                stroke-width="1.5"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              >
+                <path d="M10 80 Q25 55 40 65 Q55 45 72 25" />
+                <path d="M36 60 Q28 72 18 76" />
+                <path d="M72 25 Q78 18 74 10" />
+                <path d="M40 65 Q48 75 44 82" />
+                <circle
+                  cx="74"
+                  cy="10"
+                  r="3.5"
+                  fill="#d44f39"
+                  stroke="none"
+                  opacity=".5"
+                />
+                <path d="M58 44 l2-5 2 5 m-2-5 l-5 2 5 2" stroke-width="1.2" />
+              </svg>
+            </div>
+            <div
+              style="
+                position: absolute;
+                bottom: 24px;
+                left: 24px;
+                opacity: 0.28;
+                pointer-events: none;
+              "
+            >
+              <svg
+                width="80"
+                height="80"
+                viewBox="0 0 80 80"
+                fill="none"
+                stroke="#d44f39"
+                stroke-width="1.4"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              >
+                <path d="M70 80 Q55 60 42 68 Q30 52 15 38" />
+                <path d="M44 63 Q52 73 56 78" />
+                <path d="M15 38 Q8 28 12 18" />
+                <circle
+                  cx="12"
+                  cy="18"
+                  r="3"
+                  fill="#d44f39"
+                  stroke="none"
+                  opacity=".5"
+                />
+              </svg>
+            </div>
+          </div>
+        </div>
+        <!-- /notebook-open -->
+      </section>
+
+      <!-- ══════════════════════ ABOUT ══════════════════════ -->
+      <section id="about">
+        <div class="sec-header rv">
+          <span class="sec-num">01</span>
+          <h2 class="sec-title">About</h2>
+          <div class="sec-line"></div>
+        </div>
+        <div class="about-grid">
+          <div class="about-bio rv rv1">
+            I'm a <strong>Software Engineer</strong>, dedicated to building with
+            integrity, thriving in collaborative teams, and fuelled by a joy for
+            learning.<br /><br />
+            I believe that great code is a byproduct of a great team. I bring a
+            positive energy to every sprint and thrive in environments where we
+            can brainstorm openly. I enjoy exploring new technologies, treating
+            every challenge as an opportunity to upgrade my skill set and
+            contribute effectively to our collective goals.
+          </div>
+          <div class="about-details">
+            <div class="det rv rv2">
+              <span class="det-k">Based In</span
+              ><span class="det-v">Bangalore, India</span>
+            </div>
+            <div class="det rv rv2">
+              <span class="det-k">Role</span
+              ><span class="det-v">Software Engineer, ServiceNow</span>
+            </div>
+            <div class="det rv rv3">
+              <span class="det-k">Focus</span
+              ><span class="det-v"
+                >Logic · User Experience · AI Automation · Design Systems</span
+              >
+            </div>
+            <div class="det rv rv4">
+              <span class="det-k">Interests</span
+              ><span class="det-v"
+                >Sports · Swimming · Hiking · Music · Reading · Cooking · Hobby
+                Collector</span
+              >
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ══════════════════════ PROJECTS ══════════════════════ -->
+      <section id="projects">
+        <div class="sec-header rv">
+          <span class="sec-num">02</span>
+          <h2 class="sec-title">Projects</h2>
+          <div class="sec-line"></div>
+        </div>
+        <!-- Skills / project cards go here -->
+      </section>
+
+      <!-- ══════════════════════ EXPERIENCE ══════════════════════ -->
+      <section id="work">
+        <div class="sec-header rv">
+          <span class="sec-num">03</span>
+          <h2 class="sec-title">
+            Experience &amp;
+            <em
+              style="
+                font-style: italic;
+                color: var(--coral);
+                font-family: &quot;Crimson Pro&quot;, serif;
+                font-weight: 300;
+              "
+              >Education</em
+            >
+          </h2>
+          <div class="sec-line"></div>
+        </div>
+        <div class="exp-grid">
+          <!-- Work history -->
+          <div>
+            <p class="exp-col-label rv">Work History</p>
+            <div class="exp-entry rv rv1">
+              <span class="exp-year">August 2022 — Present</span>
+              <div class="exp-body">
+                <h3 class="exp-title">Software Engineer, IC2</h3>
+                <div class="exp-company">
+                  Service Catalog (PAXE), ServiceNow
+                </div>
+                <ul class="exp-desc">
+                  <li>
+                    Engineered Text to Catalog (T2C), an AI-driven application
+                    that automates the generation of Catalog Items by leveraging
+                    the existing Service Catalog backbone.
+                  </li>
+                  <li>
+                    Optimized the Service Catalog, ServiceNow's core platform
+                    engine for enterprise request management, ensuring seamless
+                    integration with modern Generative AI workflows.
+                  </li>
+                  <li>
+                    [Generative AI] [LLMs] [Prompt engineering] [Workflow
+                    automation] [Java] [JavaScript] [Angular] [Seismic]
+                  </li>
+                </ul>
+                <br />
+                <div class="exp-company">
+                  Service Mapping (ITOM), ServiceNow
+                </div>
+                <ul class="exp-desc">
+                  <li>
+                    Developed Service Mapping workspace modules to visualize
+                    complex infrastructure and ML-generated service candidates,
+                    improving visibility for thousands of IT assets.
+                  </li>
+                  <li>
+                    Spearheaded the end-to-end delivery of the Cloud Account
+                    Management (CAM) application, enabling a successful
+                    Innovation Lab release and reducing cloud onboarding and
+                    offboarding time from days or weeks to minutes.
+                  </li>
+                  <li>
+                    [ITOM] [Service Mapping] [MID server] [Cloud Management]
+                    [Servicenow platform] [Java] [Javascript] [Angular]
+                  </li>
+                </ul>
+              </div>
+            </div>
+            <div class="exp-entry rv rv2">
+              <span class="exp-year">March 2022 — June 2022</span>
+              <div class="exp-body">
+                <h3 class="exp-title">Software Engineering Intern</h3>
+                <div class="exp-company">MiniOrange (Pune, India)</div>
+                <ul class="exp-desc">
+                  <li>
+                    Integrated OAuth 2.0 with Google, Okta, and Azure to provide
+                    Single Sign-On (SSO) for 4+ business clients.
+                  </li>
+                  <li>
+                    Developed and improved custom WordPress plugins to add new
+                    features and enhance platform security.
+                  </li>
+                  <li>
+                    Gained hands-on experience in identity management and
+                    industry-standard security practices.
+                  </li>
+                  <li>
+                    [OAuth 2.0] [SSO] [Identity Management] [PHP] [WordPress]
+                    [API Integration]
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+
+          <!-- Education -->
+          <div>
+            <p class="exp-col-label rv rv1">Education &amp; Certifications</p>
+            <div class="exp-entry rv rv1">
+              <span class="exp-year">2018 — 2022</span>
+              <div class="exp-body">
+                <h3 class="exp-title">Bachelor's in E&amp;TC</h3>
+                <div class="exp-company">
+                  Pune Institute of Computer Technology (Pune, India)
+                </div>
+                <p class="exp-desc">
+                  Graduated with distinction.<br />Specialised in software
+                  systems, algorithms, and robotic programming.
+                </p>
+              </div>
+            </div>
+            <div class="exp-entry rv rv3">
+              <span class="exp-year"></span>
+              <div class="exp-body">
+                <h3 class="exp-title">Skills</h3>
+                <div class="exp-company">Languages</div>
+                <p class="exp-desc">
+                  Java · JavaScript · SQL · Python · HTML/CSS · PHP
+                </p>
+                <br />
+                <div class="exp-company">Frameworks</div>
+                <p class="exp-desc">
+                  Angular · React · Node.js · ServiceNow's (Jelly, Seismic)
+                </p>
+                <br />
+                <div class="exp-company">AI Automation</div>
+                <p class="exp-desc">Prompt engineering</p>
+                <br />
+                <div class="exp-company">Technologies/Tools</div>
+                <p class="exp-desc">Git · MySQL · LLMs · Postman · Linux</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ══════════════════════ PATENTS ══════════════════════ -->
+      <section id="patents">
+        <div class="sec-header rv">
+          <span class="sec-num">04</span>
+          <h2 class="sec-title">Patents</h2>
+          <div class="sec-line"></div>
+        </div>
+        <p
+          class="rv patent-subtitle"
+          style="
+            font-family: &quot;Crimson Pro&quot;, serif;
+            font-size: 1.3rem;
+            color: rgba(242, 232, 213, 0.55);
+            margin-bottom: 52px;
+            font-style: italic;
+          "
+        >
+          Patented innovations leveraging Machine Learning and Application
+          Services Infrastructure to automate service discovery, resource
+          tracking, and troubleshooting.
+        </p>
+        <div class="patents-grid">
+          <a
+            href="https://patents.google.com/patent/US12184742B1"
+            target="_blank"
+            rel="noopener"
+            class="patent-card rv"
+            style="text-decoration: none; display: block"
+          >
+            <span class="patent-num">US Patent #US12184742B1</span>
+            <h3 class="patent-title">Automatic service discovery</h3>
+            <p class="patent-desc">
+              This system acts like an automated map-maker for complex software
+              environments. By constantly monitoring how different computer
+              programs communicate, it uses machine learning to analyze their
+              behavior and categorize their relationships. Instead of a human
+              having to manually document every connection, the technology
+              automatically identifies when a specific group of processes is
+              working together to perform a larger task.
+            </p>
+            <div class="patent-footer">
+              <span class="patent-year">2023</span
+              ><span class="patent-status">Granted</span>
+            </div>
+          </a>
+          <a
+            href="https://patents.google.com/patent/US20240422058A1"
+            target="_blank"
+            rel="noopener"
+            class="patent-card rv rv1"
+            style="text-decoration: none; display: block"
+          >
+            <span class="patent-num">US Patent #US20240422058A1</span>
+            <h3 class="patent-title">
+              Determining metrics including resource expenditures of a digital
+              service
+            </h3>
+            <p class="patent-desc">
+              This system calculates the total cost and resource usage of a
+              specific digital service. It starts by finding all the individual
+              components in a network and pinpointing which ones are actually
+              used to run that service. By collecting the expenses for each of
+              those parts and adding them together, it provides a clear,
+              aggregated metric of the service's overall footprint, and displays
+              it on the Service Map.
+            </p>
+            <div class="patent-footer">
+              <span class="patent-year">2023</span
+              ><span class="patent-status">Granted</span>
+            </div>
+          </a>
+          <a
+            href="https://patents.google.com/patent/US20250231851A1"
+            target="_blank"
+            rel="noopener"
+            class="patent-card rv rv2"
+            style="text-decoration: none; display: block"
+          >
+            <span class="patent-num">US Patent #US20250231851A1</span>
+            <h3 class="patent-title">Issue detection and solution response</h3>
+            <p class="patent-desc">
+              This system monitors IT components to detect specific problems
+              based on pre-set triggers. By collecting usage data from user
+              devices, it identifies exactly when and where a fault occurs. This
+              data is then fed into a generative AI model, which analyzes the
+              context to automatically produce a tailored solution for the
+              issue.
+            </p>
+            <div class="patent-footer">
+              <span class="patent-year">2024</span
+              ><span class="patent-status">Granted</span>
+            </div>
+          </a>
+        </div>
+      </section>
+
+      <!-- ══════════════════════ CONTACT ══════════════════════ -->
+      <section id="contact">
+        <div>
+          <div class="sec-header rv" style="margin-bottom: 28px">
+            <span class="sec-num">05</span>
+            <p class="contact-hl rv rv1">
+              Got something<br />interesting?<br /><em>Let's connect.</em>
+            </p>
+          </div>
+          <p class="contact-sub rv rv2">
+            Beyond the code, I'm always eager to connect with fellow builders
+            and curious minds. Whether you want to dive into Product ideas, AI
+            innovation, or swap stories from a mountain trail, or looking for a
+            teammate for a quick game — let's connect!
+          </p>
+        </div>
+
+        <div class="social-links-grid rv rv2">
+          <a
+            href="https://www.linkedin.com/in/shrutijain2806/"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="social-link-item"
+          >
+            <div class="social-link-icon">
+              <svg
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="1.8"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              >
+                <path
+                  d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"
+                />
+                <rect x="2" y="9" width="4" height="12" />
+                <circle cx="4" cy="4" r="2" />
+              </svg>
+            </div>
+            <div>
+              <span class="social-link-name">LinkedIn</span>
+              <span class="social-link-handle"
+                >linkedin.com/in/shrutijain2806</span
+              >
+            </div>
+            <span class="social-link-arr">↗</span>
+          </a>
+
+          <a
+            href="https://github.com/shruti-jain28"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="social-link-item"
+          >
+            <div class="social-link-icon">
+              <svg
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="1.8"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              >
+                <path
+                  d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"
+                />
+              </svg>
+            </div>
+            <div>
+              <span class="social-link-name">GitHub</span>
+              <span class="social-link-handle">github.com/shruti-jain28</span>
+            </div>
+            <span class="social-link-arr">↗</span>
+          </a>
+
+          <a href="mailto:shruti.2806jain@gmail.com" class="social-link-item">
+            <div class="social-link-icon">
+              <svg
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="1.8"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              >
+                <path
+                  d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"
+                />
+                <polyline points="22,6 12,13 2,6" />
+              </svg>
+            </div>
+            <div>
+              <span class="social-link-name">Email</span>
+              <span class="social-link-handle">shruti.2806jain@gmail.com</span>
+            </div>
+            <span class="social-link-arr">↗</span>
+          </a>
+        </div>
+      </section>
+
+      <!-- ══════════════════════ FOOTER ══════════════════════ -->
+      <footer>
+        <a href="#hero" class="foot-logo">By Shruti Jain.</a>
+        <span class="foot-copy">© 2025 — Bangalore, India</span>
+      </footer>
+    </main>
+
+    <!-- Data first (populate Portfolio.ICONS / Portfolio.QUOTES) -->
+    <script src="data/icons.js"></script>
+    <script src="data/quotes.js"></script>
+
+    <!-- Feature scripts (register Portfolio.init* functions) -->
+    <script src="scripts/theme.js"></script>
+    <script src="scripts/sidebar.js"></script>
+    <script src="scripts/cursor.js"></script>
+    <script src="scripts/typewriter.js"></script>
+    <script src="scripts/quotes.js"></script>
+    <script src="scripts/interactions.js"></script>
+
+    <!-- Entry point — calls all inits in the right order -->
+    <script src="scripts/main.js"></script>
+  </body>
+</html>

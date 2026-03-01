@@ -1,0 +1,102 @@
+/* ═══════════════════════════════════════
+   RESET
+═══════════════════════════════════════ */
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* ═══════════════════════════════════════
+   DESIGN TOKENS — DARK (default)
+═══════════════════════════════════════ */
+:root {
+  --bg: #161210;
+  --bg-tile: #201c19;
+  --coral: #87ceeb;
+  --coral-lt: #87ceeb;
+  --cream: #f2e8d5;
+  --cream-dk: #e8ddc8;
+  --grid-cl: rgba(160, 175, 220, 0.22);
+  --text: #1c1409;
+  --muted: #9a8472;
+  --sw: 72px;
+}
+
+/* ═══════════════════════════════════════
+   DESIGN TOKENS — LIGHT OVERRIDE
+═══════════════════════════════════════ */
+html.light {
+  --bg: #f5f1ea;
+  --bg-tile: #ede7db;
+  --coral: #c94535;
+  --coral-lt: #d85844;
+  --cream: #f5f1ea;
+  --cream-dk: #ede7db;
+  --grid-cl: rgba(100, 80, 60, 0.12);
+  --text: #2a1f18;
+  --muted: #9a8472;
+}
+
+html.light body {
+  background: var(--bg);
+  color: var(--text);
+}
+
+/* ═══════════════════════════════════════
+   BASE
+═══════════════════════════════════════ */
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background: var(--bg);
+  color: var(--cream);
+  font-family: "DM Sans", sans-serif;
+  overflow-x: hidden;
+  cursor: none;
+}
+
+/* ═══════════════════════════════════════
+   SCROLL REVEAL UTILITY
+═══════════════════════════════════════ */
+.rv {
+  opacity: 0;
+  transform: translateY(28px);
+  transition:
+    opacity 0.9s cubic-bezier(0.16, 1, 0.3, 1),
+    transform 0.9s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.rv.show {
+  opacity: 1;
+  transform: translateY(0);
+}
+.rv1 {
+  transition-delay: 0.1s;
+}
+.rv2 {
+  transition-delay: 0.2s;
+}
+.rv3 {
+  transition-delay: 0.3s;
+}
+.rv4 {
+  transition-delay: 0.4s;
+}
+
+/* ═══════════════════════════════════════
+   GLOBAL KEYFRAMES
+═══════════════════════════════════════ */
+@keyframes fadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}

@@ -1,0 +1,29 @@
+/* ═══════════════════════════════════════
+   RESPONSIVE — ≤ 900px
+═══════════════════════════════════════ */
+@media (max-width: 900px) {
+  :root { --sw: 0px; }
+
+  .sidebar { display: none; }
+
+  .notebook-open           { max-width: 100%; }
+  .nb-page-left            { grid-template-columns: 1fr; }
+  .nb-right-illus,
+  .nb-page-right,
+  .notebook-spine          { display: none; }
+
+  #about,
+  #projects,
+  #work,
+  #patents,
+  #contact                 { padding: 80px 28px; }
+
+  .about-grid,
+  .exp-grid,
+  #contact                 { grid-template-columns: 1fr; gap: 48px; }
+
+  .skills-grid,
+  .patents-grid            { grid-template-columns: 1fr; }
+
+  nav                      { gap: 32px; padding: 24px; }
+}

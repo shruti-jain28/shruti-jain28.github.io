@@ -1,0 +1,218 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Post — Shruti Jain</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Caveat:wght@400;600;700&family=Crimson+Pro:ital,wght@0,300;0,400;0,600;1,300;1,400&family=DM+Mono:wght@400;500&family=DM+Sans:wght@300;400;500&display=swap"
+      rel="stylesheet"
+    />
+    <!-- Shared styles -->
+    <link rel="stylesheet" href="styles/base.css" />
+    <link rel="stylesheet" href="styles/layout.css" />
+    <link rel="stylesheet" href="styles/cursor.css" />
+    <!-- Blog-specific -->
+    <link rel="stylesheet" href="styles/blog.css" />
+  </head>
+  <body>
+
+    <!-- Cursor -->
+    <div class="cur-dot" id="curDot"></div>
+    <div class="cur-ring" id="curRing"></div>
+
+    <!-- Theme toggle -->
+    <button class="theme-toggle" id="themeToggle" aria-label="Toggle theme" title="Switch theme">
+      <span class="theme-icon theme-icon-dark">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/>
+        </svg>
+      </span>
+      <span class="theme-icon theme-icon-light">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <circle cx="12" cy="12" r="5"/>
+          <line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/>
+          <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/>
+          <line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/>
+          <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/>
+        </svg>
+      </span>
+    </button>
+
+    <!-- Sidebars -->
+    <aside class="sidebar sidebar-left"  id="sideL"></aside>
+    <aside class="sidebar sidebar-right" id="sideR"></aside>
+
+    <main>
+
+      <!-- ── NAV ── -->
+      <nav>
+        <a href="index.html" class="nav-home">S J.</a>
+        <a href="index.html#about"    class="nav-link">About</a>
+        <a href="index.html#projects" class="nav-link">Projects</a>
+        <a href="index.html#work"     class="nav-link">Experience</a>
+        <a href="index.html#patents"  class="nav-link">Patents</a>
+        <a href="blog.html"           class="nav-link">Blog</a>
+        <a href="index.html#contact"  class="nav-link">Connect</a>
+      </nav>
+
+      <!-- ── POST HERO ── -->
+      <section id="post-hero">
+
+        <!-- Back link -->
+        <div class="post-back-row">
+          <a href="blog.html" class="back-link">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <line x1="19" y1="12" x2="5" y2="12"/>
+              <polyline points="12 19 5 12 12 5"/>
+            </svg>
+            All Posts
+          </a>
+        </div>
+
+        <!-- Tags row (populated by JS) -->
+        <div class="post-tags-row" id="postTags"></div>
+
+        <!-- Title (populated by JS) -->
+        <h1 class="post-title" id="postTitle"></h1>
+
+        <!-- Meta bar -->
+        <div class="post-meta-bar">
+          <span class="post-meta-item">
+            <span>📅</span>
+            <span id="postDate"></span>
+          </span>
+          <span class="post-meta-item">
+            <span>⏱</span>
+            <span id="postRead"></span>
+          </span>
+          <span class="post-meta-item">
+            <span>✍️</span>
+            Shruti Jain
+          </span>
+          <!-- Listen button -->
+          <button class="listen-btn" id="listenBtn" title="Listen to this post">
+            <div class="listen-waves" aria-hidden="true">
+              <span></span><span></span><span></span><span></span><span></span>
+            </div>
+            Listen
+          </button>
+        </div>
+
+      </section>
+
+      <!-- ── POST BODY (populated by JS) ── -->
+      <article id="postBody"></article>
+
+      <!-- Visual breather before recommendations -->
+      <div class="post-divider"></div>
+
+      <!-- ── RECOMMENDATIONS ── -->
+      <section id="recommendations">
+        <div class="rec-header rv">
+          <span class="rec-label">Continue reading</span>
+          <h2 class="rec-title">You might also enjoy</h2>
+          <div class="rec-line"></div>
+        </div>
+        <div class="rec-grid" id="recGrid"></div>
+      </section>
+
+      <!-- ── FOOTER ── -->
+      <footer>
+        <a href="index.html" class="foot-logo">By Shruti Jain.</a>
+        <span class="foot-copy">© 2025 — Bangalore, India</span>
+      </footer>
+
+    </main>
+
+    <!-- ══════════════════════ TTS PLAYER BAR ══════════════════════ -->
+    <div class="tts-player" id="ttsPlayer" role="complementary" aria-label="Audio player">
+
+      <!-- Progress track along top edge -->
+      <div class="tts-progress-track">
+        <div class="tts-progress-fill" id="ttsProgressBar"></div>
+      </div>
+
+      <div class="tts-inner">
+
+        <!-- Animated waveform -->
+        <div class="tts-wave" id="ttsWave" aria-hidden="true">
+          <span></span><span></span><span></span><span></span><span></span>
+        </div>
+
+        <!-- Post title in player -->
+        <span class="tts-blog-title" id="ttsBlogTitle"></span>
+
+        <!-- Speed chips -->
+        <div class="tts-speeds" role="group" aria-label="Playback speed">
+          <button class="tts-speed-btn" data-rate="0.8"  title="0.8× speed">0.8×</button>
+          <button class="tts-speed-btn active" data-rate="1"    title="Normal speed">1×</button>
+          <button class="tts-speed-btn" data-rate="1.25" title="1.25× speed">1.25×</button>
+          <button class="tts-speed-btn" data-rate="1.5"  title="1.5× speed">1.5×</button>
+        </div>
+
+        <!-- Controls -->
+        <div class="tts-controls">
+
+          <!-- Stop -->
+          <button class="tts-btn" id="ttsStop" title="Stop" aria-label="Stop">
+            <svg viewBox="0 0 24 24" fill="currentColor">
+              <rect x="4" y="4" width="16" height="16" rx="2"/>
+            </svg>
+          </button>
+
+          <!-- Play / Pause (big coral button) -->
+          <button class="tts-btn tts-btn--play" id="ttsPlay" aria-label="Play">
+            <!-- Play icon -->
+            <svg id="ttsPlayIcon" viewBox="0 0 24 24" fill="currentColor" style="display:block">
+              <polygon points="5,3 19,12 5,21"/>
+            </svg>
+            <!-- Pause icon -->
+            <svg id="ttsPauseIcon" viewBox="0 0 24 24" fill="currentColor" style="display:none">
+              <rect x="5"  y="3" width="4" height="18" rx="1"/>
+              <rect x="15" y="3" width="4" height="18" rx="1"/>
+            </svg>
+          </button>
+
+          <!-- Close -->
+          <button class="tts-btn tts-btn--close" id="ttsClose" title="Close player" aria-label="Close audio player">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                 stroke-linecap="round" stroke-linejoin="round">
+              <line x1="18" y1="6" x2="6" y2="18"/>
+              <line x1="6"  y1="6" x2="18" y2="18"/>
+            </svg>
+          </button>
+
+        </div>
+      </div>
+    </div>
+
+    <!-- Data -->
+    <script src="data/icons.js"></script>
+    <script src="data/blogs.js"></script>
+
+    <!-- Shared scripts -->
+    <script src="scripts/theme.js"></script>
+    <script src="scripts/sidebar.js"></script>
+    <script src="scripts/cursor.js"></script>
+    <script src="scripts/interactions.js"></script>
+
+    <!-- Blog post script -->
+    <script src="scripts/blog-post.js"></script>
+
+    <script>
+      (function () {
+        Portfolio.initTheme();
+        document.addEventListener('DOMContentLoaded', function () {
+          Portfolio.initSidebars();
+          Portfolio.initCursor();
+          Portfolio.initMagneticNav();
+          Portfolio.initStickyNav();
+          Portfolio.initScrollReveal();
+          Portfolio.initBlogPost();
+        });
+      })();
+    </script>
+
+  </body>
+</html>
